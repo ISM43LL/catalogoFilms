@@ -1,0 +1,36 @@
+.home-section {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    padding: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    background-color: #8aeb52;
+    border-radius: 10px;
+    padding: 1.5rem;
+    width: 280px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s;
+  }
+  
+  .card-link:hover {
+    border-color: #000;
+  }
+  
