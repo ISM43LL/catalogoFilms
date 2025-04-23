@@ -17,10 +17,10 @@ const Contato = () => {
 
       <div className="contato-links">
         <button onClick={handleEmailClick} className="contato-button">
-          📧 Via E-mail
+           E-mail
         </button>
         <button onClick={handleWhatsAppClick} className="contato-button">
-          💬 Via WhatsApp
+           WhatsApp
         </button>
       </div>
     </section>
