@@ -7,7 +7,7 @@ const Home = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const movieList = ['Batman', 'Superman', 'Spiderman', 'Avengers', 'Iron Man', 'Thor', 'Hulk', 'Doctor Strange', 'Captain America', 'Black Panther', 'Guardians of the Galaxy', 'Ant-Man'];
+        const movieList = ['Batman', 'Superman', 'Spider-Man', 'Avengers', 'Iron Man', 'Thor', 'Hulk', 'Doctor Strange', 'Captain America', 'Black Panther', 'Guardians of the Galaxy', 'Ant-Man'];
         const apiKey = '1cc2ae52'; 
         const promises = movieList.map(title =>
           fetch(`https://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(title)}`)
@@ -31,6 +31,8 @@ const Home = () => {
           <img src={movie.Poster} alt={movie.Title} style={{ width: '100%', height: 'auto', borderRadius: '5px' }} />
           <p><strong>Ano:</strong> {movie.Year}</p>
           <p><strong>Género:</strong> {movie.Genre}</p>
+          <p><strong>Duração:</strong>{movie.Runtime}</p>
+          <p><strong>Diretor:</strong>{movie.Director}</p>
         </div>
       ))}
     </section>
