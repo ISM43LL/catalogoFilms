@@ -6,12 +6,12 @@ import './Header.css';
 const Header = () => {
   return (
     <header className="header">
-      <img src={logo} alt="Logótipo" className="logo" />
+      <div className="header-title">
+        <img src={logo} alt="Logótipo" className="logo" />
+        <h1>Catálogo de Filmes</h1>
+      </div>
       <nav className="nav-links">
         <Link to="/">Home</Link>
-        <Link to="/sobre">Sobre</Link>
-        <Link to="/projeto">Projeto</Link>
-        <Link to="/contato">Contato</Link>
       </nav>
     </header>
   );
