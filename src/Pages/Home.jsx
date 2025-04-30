@@ -1,32 +1,38 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import './Home.css';
 
 const Home = () => {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    const fetchMovies = async () => {
+      try {
+        const movieList = ['Batman', 'Superman', 'Spiderman', 'Avengers', 'Iron Man', 'Thor', 'Hulk', 'Doctor Strange', 'Captain America', 'Black Panther', 'Guardians of the Galaxy', 'Ant-Man'];
+        const apiKey = '1cc2ae52'; 
+        const promises = movieList.map(title =>
+          fetch(`https://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(title)}`)
+            .then(response => response.json())
+        );
+        const results = await Promise.all(promises);
+        setMovies(results);
+      } catch (error) {
+        console.error('Erro ao buscar filmes:', error);
+      }
+    };
+
+    fetchMovies();
+  }, []);
+
   return (
     <section className="home-section">
-      <div className="card">
-        <h2>Sobre</h2>
-        <p>Olá! Me chamo Ismael, estudante do curso Técnico em Análise e Desenvolvimento de Sistemas.
-            Aqui, você terá a oportunidade de conhecer um pouco mais sobre um dos projetos que desenvolvi
-            durante minha jornada de aprendizado.</p>
-        <Link to="/sobre" className="card-link">Saiba mais</Link>
-      </div>
-
-      <div className="card">
-        <h2>Projetos</h2>
-        <p>Ao longo do curso, tivemos a oportunidade de colocar a mão na massa em diversos projetos práticos.
-            Na primeira fase, desenvolvemos um site simulando um e-commerce.
-            Agora, apresento o projeto que realizei na segunda fase do curso.</p>
-        <Link to="/projeto" className="card-link">Saiba mais</Link>
-      </div>
-
-      <div className="card">
-        <h2>Contato</h2>
-        <p>Se você tiver alguma dúvida ou quiser saber mais detalhes,
-             fique à vontade para entrar em contato. Clique em "Saiba Mais" para ver as opções disponíveis.</p>
-        <Link to="/contato" className="card-link">Saiba mais</Link>
-      </div>
+      {movies.map((movie, index) => (
+        <div key={index} className="card">
+          <h2>{movie.Title}</h2>
+          <img src={movie.Poster} alt={movie.Title} style={{ width: '100%', height: 'auto', borderRadius: '5px' }} />
+          <p><strong>Ano:</strong> {movie.Year}</p>
+          <p><strong>Género:</strong> {movie.Genre}</p>
+        </div>
+      ))}
     </section>
   );
 };
