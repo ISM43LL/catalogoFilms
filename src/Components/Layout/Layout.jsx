@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import './Layout.css';
-import imgFundo from '../img/img_fundo.gif'; // ajusta o caminho conforme necessário
+import imgFundo from '../../img/img_fundo.gif';
 
 const Layout = ({ children }) => {
   return (
