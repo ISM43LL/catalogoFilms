@@ -16,10 +16,10 @@ const Home = () => {
     const fetchMovies = async () => {
       const apiKey = '1cc2ae52';
       const movieGenres = {
-        Ação: ['Avatar', 'Mad-Max:-Fury-Road', 'Spider-Man', 'Die-Hard', 'Iron Man', 'Mission:-Impossible-Rogue-Nation'],
-        Comédia: ['Superbad', 'The Hangover', 'Step Brothers', 'Bridesmaids', 'Jumanji', 'The-Hangover'],
-        Terror: ['The Conjuring', 'It', 'Hereditary', 'The Exorcist', 'A Quiet Place', 'Get Out'],
-        Romance: ['The Notebook', 'Titanic', 'Before Sunrise', 'Call Me By Your Name', 'Me Before You', 'A Walk to Remember'],
+        Ação: ['Avatar', 'Mad-Max:-Fury-Road', 'Spider-Man', 'Die-Hard','Mission:-Impossible-Rogue-Nation'],
+        Comédia: ['Superbad', 'The Hangover','Bridesmaids', 'Jumanji', 'The-Hangover'],
+        Terror: ['The Conjuring', 'It', 'Hereditary', 'The Exorcist','Get Out'],
+        Romance: ['Titanic', 'Before Sunrise', 'Call Me By Your Name', 'Me Before You', 'A Walk to Remember'],
       };
 
       const newMoviesByGenre = {};
